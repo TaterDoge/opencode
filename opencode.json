@@ -8,17 +8,20 @@
         "baseURL": "https://code-api.x-aio.com/v1"
       },
       "models": {
-        "DeepSeek-V3.2": {
-          "name": "DeepSeek-V3.2"
-        },
         "XAIO-C-4-5-Opus": {
           "name": "XAIO-C-4-5-Opus"
         },
         "XAIO-C-4-5-Sonnet": {
           "name": "XAIO-C-4-5-Sonnet"
         },
+        "DeepSeek-V3.2": {
+          "name": "DeepSeek-V3.2"
+        },
         "GLM-4.7": {
           "name": "GLM-4.7"
+        },
+        "MiniMax-M2.1": {
+          "name": "MiniMax-M2.1"
         }
       }
     },
@@ -31,6 +34,14 @@
     "external_directory": "allow"
   },
   "mcp": {
+    "playwright": {
+      "enabled": true,
+      "type": "local",
+      "command": [
+        "npx",
+        "@playwright/mcp@latest"
+      ],
+    },
     "context7": {
       "type": "remote",
       "url": "https://mcp.context7.com/mcp"
