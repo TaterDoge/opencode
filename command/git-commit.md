@@ -7,7 +7,7 @@ opts:
   is_slash_cmd: true
   adapter:
     name: codeplan
-    model: DeepSeek-V3.2
+    model: XAIO-C-4-5-Haiku
 ---
 
 ## user
