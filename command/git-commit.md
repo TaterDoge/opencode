@@ -2,12 +2,14 @@
 name: git-commit
 interaction: chat
 description: 分析Git变更并自动生成符合规范的提交消息
+agent: build
+model: codeplan/XAIO-O-G5-2
 opts:
   alias: git-commit
   is_slash_cmd: true
   adapter:
-    name: codeplan
-    model: XAIO-C-4-5-Haiku
+    name: codeplan-completions
+    model: MiniMax-M2.1
 ---
 
 ## user
@@ -24,7 +26,7 @@ opts:
    - 使用 `git status --porcelain` 获取完整的文件状态概览
    - 对已暂存的改动：使用 `git diff --cached` 进行详细分析
    - 对未暂存的改动：使用 `git diff` 进行预览
-   - **文件识别**：自动识别新增文件（`??`）、修改文件（` M`）、删除文件（` D`）模式
+   - **文件识别**：自动识别新增文件（`??`）、修改文件（`M`）、删除文件（`D`）模式
    - **冲突检测**：如检测到冲突状态（`UU`/`AA`/`DD` 等），输出：
      1. 冲突文件清单
      2. 建议命令：`git status` 查看详情
@@ -58,6 +60,7 @@ opts:
    - **关键原则**：使用 heredoc + `-m` 参数传递消息
    - 单提交场景：
      - 使用 heredoc 格式执行：
+
        ```bash
        git commit -m "$(cat <<'EOF'
        <emoji> <type>(<scope>): <subject>
@@ -67,6 +70,7 @@ opts:
        EOF
        )"
        ```
+
    - 多提交场景：
      - 执行前确认：展示完整拆分计划，等待用户明确确认
      - 为每个拆分组执行：
