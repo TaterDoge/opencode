@@ -2,12 +2,18 @@
   "$schema": "https://opencode.ai/config.json",
   "provider": {
     "codeplan": {
-      "npm": "@ai-sdk/openai-compatible",
+      "npm": "@ai-sdk/openai",
       "name": "codeplan",
       "options": {
         "baseURL": "https://code-api.x-aio.com/v1"
       },
       "models": {
+        "XAIO-O-G5-2": {
+          "name": "XAIO-O-G5-2",
+          "options": {
+            "store": false
+          }
+        },
         "XAIO-C-4-5-Opus": {
           "name": "XAIO-C-4-5-Opus"
         },
@@ -24,14 +30,17 @@
           "name": "MiniMax-M2.1"
         }
       }
-    },
+    }
   },
   "permission": {
     "edit": "allow",
     "bash": "allow",
     "webfetch": "allow",
     "doom_loop": "allow",
-    "external_directory": "allow"
+    "external_directory": "allow",
+    "skill": {
+      "*": "allow"
+    }
   },
   "mcp": {
     "playwright": {
@@ -40,15 +49,25 @@
       "command": [
         "npx",
         "@playwright/mcp@latest"
-      ],
+      ]
     },
     "context7": {
+      "enabled": true,
       "type": "remote",
       "url": "https://mcp.context7.com/mcp"
     },
     "figma-desktop": {
+      "enabled": true,
       "type": "remote",
       "url": "http://127.0.0.1:3845/mcp"
+    },
+    "mgrep": {
+      "enabled": true,
+      "type": "local",
+      "command": [
+        "mgrep",
+        "mcp"
+      ]
     }
   },
   "keybinds": {
