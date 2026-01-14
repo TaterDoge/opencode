@@ -1,15 +1,23 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "theme": "system",
   "provider": {
-    "codeplan": {
-      "npm": "@ai-sdk/openai",
-      "name": "codeplan",
+    "x-aio": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "x-aio",
       "options": {
-        "baseURL": "https://code-api.x-aio.com/v1"
+        "baseURL": "https://code-api.x-aio.com/v1",
+        "apiKey": "{env:CODEPLAN_API_KEY}"
       },
       "models": {
         "XAIO-O-G5-2": {
           "name": "XAIO-O-G5-2",
+          "options": {
+            "store": false
+          }
+        },
+        "XAIO-O-G5-2-Codex": {
+          "name": "XAIO-O-G5-2-Codex",
           "options": {
             "store": false
           }
@@ -20,15 +28,61 @@
         "XAIO-C-4-5-Sonnet": {
           "name": "XAIO-C-4-5-Sonnet"
         },
-        "DeepSeek-V3.2": {
-          "name": "DeepSeek-V3.2"
+        "XAIO-G-3-Flash-Preview": {
+          "name": "XAIO-G-3-Flash-Preview"
         },
         "GLM-4.7": {
           "name": "GLM-4.7"
         },
-        "MiniMax-M2.1": {
-          "name": "MiniMax-M2.1"
-        }
+      }
+    },
+    "x-aio-responses": {
+      "npm": "@ai-sdk/openai",
+      "name": "x-aio-responses",
+      "options": {
+        "baseURL": "https://code-api.x-aio.com/v1",
+        "apiKey": "{env:CODEPLAN_API_KEY}"
+      },
+      "models": {
+        "XAIO-O-G5-2": {
+          "name": "XAIO-O-G5-2",
+          "options": {
+            "store": false
+          }
+        },
+        "XAIO-O-G5-2-Codex": {
+          "name": "XAIO-O-G5-2-Codex",
+          "options": {
+            "store": false
+          }
+        },
+      }
+    },
+    "antigravity": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "antigravity",
+      "options": {
+        "baseURL": "http://127.0.0.1:8045/v1",
+        "apiKey": "{env:ANTIGRAVITY_API_KEY}"
+      },
+      "models": {
+        "claude-opus-4-5-thinking": {
+          "name": "claude-opus-4-5-thinking",
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
+        },
+        "claude-sonnet-4-5-thinking": {
+          "name": "claude-opus-4-5-thinking",
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
+        },
+        "gemini-3-flash": {
+          "name": "gemini-3-flash",
+        },
       }
     }
   },
@@ -70,10 +124,7 @@
       ]
     }
   },
-  "keybinds": {
-    "command_list": "<leader>p"
-  },
-  "instructions": [
-    "~/.config/opencode/output-styles/engineer-professional.md"
+  "plugin": [
+    "oh-my-opencode"
   ]
 }

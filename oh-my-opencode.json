@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "agents": {
+    "Sisyphus": {
+      "model": "x-aio/XAIO-C-4-5-Sonnet"
+    },
+    "librarian": {
+      "model": "opencode/glm-4.7-free"
+    },
+    "explore": {
+      "model": "opencode/grok-code"
+    },
+    "oracle": {
+      "model": "x-aio-responses/XAIO-O-G5-2"
+    },
+    "frontend-ui-ux-engineer": {
+      "model": "x-aio-responses/XAIO-O-G5-2"
+    },
+    "document-writer": {
+      "model": "x-aio/XAIO-G-3-Flash-Preview"
+    },
+    "multimodal-looker": {
+      "model": "x-aio/XAIO-G-3-Flash-Preview"
+    }
+  }
+}

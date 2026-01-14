@@ -2,14 +2,14 @@
 name: git-commit
 interaction: chat
 description: 分析Git变更并自动生成符合规范的提交消息
-agent: build
-model: codeplan/XAIO-O-G5-2
+agent: Sisyphus
+model: x-aio/XAIO-G-3-Flash-Preview
 opts:
   alias: git-commit
   is_slash_cmd: true
   adapter:
-    name: codeplan-completions
-    model: MiniMax-M2.1
+    name: x-aio-completions
+    model: XAIO-G-3-Flash-Preview
 ---
 
 ## user
@@ -104,17 +104,17 @@ Good Examples
 ```
 ✨ feat(home) : 新增 home 页面
 
-**💡 变更动机：**
+💡 变更动机：
 - 变更动机详情
 
-**🧐 实现要点：**
+🧐 实现要点：
 - 实现要点详情
 
-**🎯 影响范围：**
+🎯 影响范围：
 - 影响范围详情
 
-**📄 文件变更：**
-- 文件变更详情
+📄 文件变更：
+- 文件路径 (变更描述)
 ```
 
 请分析我的Git变更并生成合适的提交信息
