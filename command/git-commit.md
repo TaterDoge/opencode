@@ -8,7 +8,7 @@ opts:
   alias: git-commit
   is_slash_cmd: true
   adapter:
-    name: x-aio-completions
+    name: x-aio
     model: XAIO-G-3-Flash-Preview
 ---
 
@@ -23,8 +23,8 @@ opts:
    - 读取当前分支/HEAD 状态；如处于 rebase/merge 冲突状态，先提示处理冲突后再继续。
 
 2. **改动检测与分析**
+   - 取消暂存改动: 分析前先执行: `git restore --staged .` 取消所有文件暂存状态
    - 使用 `git status --porcelain` 获取完整的文件状态概览
-   - 对已暂存的改动：使用 `git diff --cached` 进行详细分析
    - 对未暂存的改动：使用 `git diff` 进行预览
    - **文件识别**：自动识别新增文件（`??`）、修改文件（`M`）、删除文件（`D`）模式
    - **冲突检测**：如检测到冲突状态（`UU`/`AA`/`DD` 等），输出：
