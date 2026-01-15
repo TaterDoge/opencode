@@ -5,10 +5,10 @@
 			"model": "x-aio/XAIO-O-G5-2"
 		},
 		"librarian": {
-			"model": "x-aio/XAIO-G-3-Flash-Preview"
+			"model": "x-aio/GLM-4.7"
 		},
 		"explore": {
-			"model": "x-aio/XAIO-G-3-Flash-Preview"
+			"model": "x-aio/GLM-4.7"
 		},
 		"oracle": {
 			"model": "x-aio/XAIO-O-G5-2"
@@ -17,10 +17,12 @@
 			"model": "x-aio/XAIO-O-G5-2"
 		},
 		"document-writer": {
-			"model": "x-aio/XAIO-G-3-Flash-Preview"
+			// "model": "x-aio/XAIO-G-3-Flash-Preview"
+			"model": "x-aio/GLM-4.7"
 		},
 		"multimodal-looker": {
-			"model": "x-aio/XAIO-G-3-Flash-Preview"
+			// "model": "x-aio/XAIO-G-3-Flash-Preview"
+			"model": "x-aio/GLM-4.7"
 		}
 	}
 }

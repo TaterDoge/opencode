@@ -31,8 +31,21 @@
 				},
 				"XAIO-O-G5-2": {
 					"name": "XAIO-O-G5-2",
+					"variants": {
+						"thinking": {
+							"reasoningEffort": "high",
+							"textVerbosity": "low"
+						},
+						"fast": {
+							"disabled": true
+						}
+					},
 					"options": {
-						"store": false
+						"store": false,
+						"reasoningEffort": "high",
+						"textVerbosity": "low",
+						"reasoningSummary": "auto",
+						"include": ["reasoning.encrypted_content"]
 					}
 				},
 				"XAIO-O-G5-2-Codex": {
@@ -48,7 +61,13 @@
 					"name": "XAIO-G-3-Flash-Preview"
 				},
 				"GLM-4.7": {
-					"name": "GLM-4.7"
+					"name": "GLM-4.7",
+					"options": {
+						"thinking": {
+							"type": "disabled",
+							"budgetTokens": 16000
+						}
+					}
 				},
 				"MiniMax-M2.1": {
 					"name": "MiniMax-M2.1"

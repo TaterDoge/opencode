@@ -3,13 +3,13 @@ name: git-commit
 interaction: chat
 description: 分析Git变更并自动生成符合规范的提交消息
 agent: Sisyphus
-model: x-aio/XAIO-G-3-Flash-Preview
+model: x-aio/GLM-4.7
 opts:
   alias: git-commit
   is_slash_cmd: true
   adapter:
     name: x-aio
-    model: XAIO-G-3-Flash-Preview
+    model: GLM-4.7
 ---
 
 ## user
