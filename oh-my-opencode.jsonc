@@ -1,0 +1,26 @@
+{
+	"$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+	"agents": {
+		"Sisyphus": {
+			"model": "x-aio/XAIO-O-G5-2"
+		},
+		"librarian": {
+			"model": "x-aio/XAIO-G-3-Flash-Preview"
+		},
+		"explore": {
+			"model": "x-aio/XAIO-G-3-Flash-Preview"
+		},
+		"oracle": {
+			"model": "x-aio/XAIO-O-G5-2"
+		},
+		"frontend-ui-ux-engineer": {
+			"model": "x-aio/XAIO-O-G5-2"
+		},
+		"document-writer": {
+			"model": "x-aio/XAIO-G-3-Flash-Preview"
+		},
+		"multimodal-looker": {
+			"model": "x-aio/XAIO-G-3-Flash-Preview"
+		}
+	}
+}
