@@ -22,10 +22,11 @@ opts:
    - 通过 `git rev-parse --is-inside-work-tree` 判断是否位于 Git 仓库。
    - 读取当前分支/HEAD 状态；如处于 rebase/merge 冲突状态，先提示处理冲突后再继续。
 
-2. **改动检测与分析**
-   - 取消暂存改动: 分析前先执行: `git restore --staged .` 取消所有文件暂存状态
-   - 使用 `git status --porcelain` 获取完整的文件状态概览
-   - 对未暂存的改动：使用 `git diff` 进行预览
+2. **改动检测与分析（以工作区为准，避免部分暂存导致遗漏）**
+   - 使用 `git status --porcelain` 获取完整的文件状态概览（XY 两列：X=索引/已暂存，Y=工作区/未暂存）
+   - **暂存区归一化**：如检测到存在已暂存改动（X 列非空格），为确保"所有代码都提交"且避免 message 与实际提交不一致，先执行：`git restore --staged .`（只撤回暂存，不改文件内容）
+   - 在归一化后，使用 `git diff` 预览整体改动（用于拆分计划/理解全局变更）
+   - **注意**：`git diff` 仅用于"规划"，真正生成提交信息必须以每一组的 `git diff --cached` 为准
    - **文件识别**：自动识别新增文件（`??`）、修改文件（`M`）、删除文件（`D`）模式
    - **冲突检测**：如检测到冲突状态（`UU`/`AA`/`DD` 等），输出：
      1. 冲突文件清单
@@ -74,10 +75,12 @@ opts:
    - 多提交场景：
      - 执行前确认：展示完整拆分计划，等待用户明确确认
      - 为每个拆分组执行：
-      1. git add <specific-paths>
-      2. 使用 heredoc 格式执行提交（同上）
-      3. 执行后检查状态：git status --porcelain
-     - 失败处理：提供回滚命令 git reset --soft HEAD~N
+      1. `git restore --staged .`（清空暂存区，避免混入其他组）
+      2. `git add -A -- <specific-paths>`（将该组路径下的新增/修改/删除全部纳入暂存；避免 `git add .` 漏删除、`git commit -a` 漏新文件）
+      3. 使用 heredoc 格式执行提交（同上）
+      4. 执行后检查状态：`git status --porcelain`
+     - **强一致性要求**：所有拆分组提交完成后，必须再次执行 `git status --porcelain`，确保无残留改动；如仍有文件未提交，列出清单并提示继续拆分或补提交
+     - 失败处理：提供回滚命令 `git reset --soft HEAD~N`
 
 6. **安全回滚**
    - 如误暂存，可用 `git restore --staged <paths>` 撤回暂存（命令会给出指令，不修改文件内容）。
