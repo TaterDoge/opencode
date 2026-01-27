@@ -1,28 +1,55 @@
 {
 	"$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
 	"agents": {
-		"Sisyphus": {
-			"model": "x-aio/XAIO-O-G5-2"
-		},
-		"librarian": {
-			"model": "x-aio/GLM-4.7"
-		},
-		"explore": {
-			"model": "x-aio/GLM-4.7"
+		"sisyphus": {
+			"model": "x-aio/XAIO-C-4-5-Sonnet-Premium"
 		},
 		"oracle": {
-			"model": "x-aio/XAIO-O-G5-2"
+			"model": "x-aio/XAIO-C-4-5-Opus"
 		},
-		"frontend-ui-ux-engineer": {
-			"model": "x-aio/XAIO-O-G5-2"
+		"librarian": {
+			"model": "x-aio/XAIO-C-4-5-Sonnet"
 		},
-		"document-writer": {
-			// "model": "x-aio/XAIO-G-3-Flash-Preview"
-			"model": "x-aio/GLM-4.7"
+		"explore": {
+			"model": "x-aio/MiniMax-M2.1"
 		},
 		"multimodal-looker": {
-			// "model": "x-aio/XAIO-G-3-Flash-Preview"
-			"model": "x-aio/GLM-4.7"
+			"model": "x-aio/MiniMax-M2.1"
+		},
+		"prometheus": {
+			"model": "x-aio/XAIO-C-4-5-Opus"
+		},
+		"metis": {
+			"model": "x-aio/XAIO-C-4-5-Sonnet"
+		},
+		"momus": {
+			"model": "x-aio/XAIO-C-4-5-Opus"
+		},
+		"atlas": {
+			"model": "x-aio/XAIO-C-4-5-Sonnet"
+		}
+	},
+	"categories": {
+		"visual-engineering": {
+			"model": "x-aio/XAIO-G-3-Pro-Preview"
+		},
+		"ultrabrain": {
+			"model": "x-aio/XAIO-O-G5-2-Codex"
+		},
+		"artistry": {
+			"model": "x-aio/XAIO-G-3-Pro-Preview"
+		},
+		"quick": {
+			"model": "x-aio/XAIO-C-4-5-Haiku"
+		},
+		"unspecified-low": {
+			"model": "x-aio/XAIO-C-4-5-Sonnet"
+		},
+		"unspecified-high": {
+			"model": "x-aio/XAIO-C-4-5-Opus"
+		},
+		"writing": {
+			"model": "x-aio/Kimi-K2.5"
 		}
 	}
 }

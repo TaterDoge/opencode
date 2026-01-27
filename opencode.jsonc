@@ -1,76 +1,332 @@
 {
 	"$schema": "https://opencode.ai/config.json",
 	"theme": "system",
+	"model": "xaio/Kimi-K2.5",
+	"small_model": "xaio/MiniMax-M2.1",
 	"provider": {
 		"x-aio": {
 			"npm": "@ai-sdk/openai-compatible",
 			// "npm": "@ai-sdk/anthropic",
 			"name": "x-aio",
 			"options": {
+				// "baseURL": "https://code-api.x-aio.com/anthropic/v1",
 				"baseURL": "https://code-api.x-aio.com/v1",
-				"apiKey": "{env:CODEPLAN_API_KEY}"
+				"apiKey": "{env:XAIO_API_KEY}"
 			},
 			"models": {
-				"XAIO-C-4-5-Opus": {
-					"name": "XAIO-C-4-5-Opus",
-					"options": {
-						"thinking": {
-							"type": "enabled",
-							"budgetTokens": 16000
-						}
+				"Qwen3-30B-A3B-Instruct-2507": {
+					"limit": {
+						"context": 256000,
+						"output": 32000
 					}
 				},
-				"XAIO-C-4-5-Sonnet": {
-					"name": "XAIO-C-4-5-Sonnet",
-					"options": {
-						"thinking": {
-							"type": "enabled",
-							"budgetTokens": 16000
-						}
-					}
-				},
-				"XAIO-O-G5-2": {
-					"name": "XAIO-O-G5-2",
-					"variants": {
-						"thinking": {
-							"reasoningEffort": "high",
-							"textVerbosity": "low"
-						},
-						"fast": {
-							"disabled": true
-						}
+				"Qwen3-30B-A3B-Thinking-2507": {
+					"limit": {
+						"context": 128000,
+						"output": 32000
 					},
-					"options": {
-						"store": false,
-						"reasoningEffort": "high",
-						"textVerbosity": "low",
-						"reasoningSummary": "auto",
-						"include": ["reasoning.encrypted_content"]
+					"reasoning": true
+				},
+				"Qwen3-Coder-480B-A35B-Instruct": {
+					"limit": {
+						"context": 256000,
+						"output": 32000
 					}
 				},
-				"XAIO-O-G5-2-Codex": {
-					"name": "XAIO-O-G5-2-Codex",
-					"options": {
-						"store": false
+				"Qwen3-Coder-30B-A3B-Instruct": {
+					"limit": {
+						"context": 64000,
+						"output": 32000
+					}
+				},
+				"Qwen3-VL-30B-A3B-Instruct": {
+					"limit": {
+						"context": 64000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					}
+				},
+				"Qwen3-VL-235B-A22B-Instruct": {
+					"limit": {
+						"context": 256000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					}
+				},
+				"MiniMax-M2": {
+					"limit": {
+						"context": 192000,
+						"output": 32000
+					},
+					"reasoning": true
+				},
+				"DeepSeek-V3.2": {
+					"limit": {
+						"context": 128000,
+						"output": 32000
+					}
+				},
+				"DeepSeek-V3.2-Thinking": {
+					"limit": {
+						"context": 128000,
+						"output": 32000
+					},
+					"reasoning": true,
+					"interleaved": {
+						"field": "reasoning_content"
+					}
+				},
+				"Kimi-K2-Instruct-0905": {
+					"limit": {
+						"context": 256000,
+						"output": 32000
 					}
 				},
 				"XAIO-G-3-Pro-Preview": {
-					"name": "XAIO-G-3-Pro-Preview"
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true,
+					"interleaved": {
+						"field": "reasoning_content"
+					}
 				},
 				"XAIO-G-3-Flash-Preview": {
-					"name": "XAIO-G-3-Flash-Preview"
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true,
+					"interleaved": {
+						"field": "reasoning_content"
+					}
+				},
+				"XAIO-C-4-5-Sonnet": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true
+				},
+				"XAIO-C-4-5-Opus": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true
+				},
+				"XAIO-C-4-5-Haiku": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true
+				},
+				"GLM-4.6V": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true,
+					"interleaved": {
+						"field": "reasoning_content"
+					}
 				},
 				"GLM-4.7": {
-					"name": "GLM-4.7",
-					"options": {
-						"thinking": {
-							"type": "disabled",
-							"budgetTokens": 16000
-						}
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"reasoning": true,
+					"interleaved": {
+						"field": "reasoning_content"
 					}
 				},
 				"MiniMax-M2.1": {
-					"name": "MiniMax-M2.1"
+					"limit": {
+						"context": 192000,
+						"output": 32000
+					},
+					"reasoning": true,
+					"interleaved": {
+						"field": "reasoning_content"
+					}
+				},
+				"XAIO-O-G5-2": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true
+				},
+				"XAIO-O-G5-2-Codex": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true
+				},
+				"XAIO-O-G5-1": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true
+				},
+				"XAIO-O-G5-1-Codex": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true
+				},
+				"XAIO-O-G5": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true
+				},
+				"XAIO-O-G5-Codex": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true
+				},
+				"XAIO-O-G5-1-Codex-Mini": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true
+				},
+				"XAIO-O-G5-1-Codex-Max": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true
+				},
+				"XAIO-C-4-5-Haiku-Premium": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true
+				},
+				"XAIO-C-4-5-Opus-Premium": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true
+				},
+				"XAIO-C-4-5-Sonnet-Premium": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true
+				},
+				"Kimi-K2.5": {
+					"limit": {
+						"context": 256000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true,
+					"interleaved": {
+						"field": "reasoning_content"
+					}
+				},
+				"GLM-4.7-Flash": {
+					"limit": {
+						"context": 200000,
+						"output": 32000
+					},
+					"reasoning": true,
+					"interleaved": {
+						"field": "reasoning_content"
+					}
 				}
 			}
 		}
@@ -86,10 +342,14 @@
 		}
 	},
 	"mcp": {
-		"playwright": {
+		"sequential-thinking": {
 			"enabled": true,
 			"type": "local",
-			"command": ["npx", "@playwright/mcp@latest"]
+			"command": [
+				"npx",
+				"npx",
+				"@modelcontextprotocol/server-sequential-thinking"
+			]
 		},
 		"context7": {
 			"enabled": true,
@@ -107,8 +367,6 @@
 			"command": ["mgrep", "mcp"]
 		}
 	},
-	"plugin": [
-		"oh-my-opencode",
-		"@tarquinen/opencode-dcp@latest" // OpenCode 动态上下文修剪插件——智能管理对话上下文以优化令牌使用情况
-	]
+	"instructions": ["~/.config/opencode/output-styles/engineer-professional.md"],
+	"plugin": ["oh-my-opencode@latest"]
 }
