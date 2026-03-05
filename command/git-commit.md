@@ -2,7 +2,15 @@
 name: git-commit
 description: 分析Git变更并自动生成符合规范的提交消息
 agent: sisyphus
-model: x-aio/Kimi-K2.5
+model: x-aio/GLM-5
+interaction: chat
+opts:
+  adapter:
+    name: x-aio
+    model: GLM-5
+  alias: git-commit
+  auto_submit: true
+  is_slash_cmd: true
 ---
 
 ## user
@@ -66,7 +74,7 @@ model: x-aio/Kimi-K2.5
        ```
 
    - 多提交场景：
-     - 执行前确认：展示完整拆分计划，等待用户明确确认
+     - 执行前使用交互式确认：展示完整拆分计划，等待用户明确确认后再执行
      - 为每个拆分组执行：
       1. `git restore --staged .`（清空暂存区，避免混入其他组）
       2. `git add -A -- <specific-paths>`（将该组路径下的新增/修改/删除全部纳入暂存；避免 `git add .` 漏删除、`git commit -a` 漏新文件）
