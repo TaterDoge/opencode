@@ -112,6 +112,21 @@
 						"api": ""
 					}
 				},
+				"XAIO-O-G5-4": {
+					"limit": {
+						"context": 1000000,
+						"output": 32000
+					},
+					"modalities": {
+						"input": ["text", "image", "video"],
+						"output": ["text"]
+					},
+					"reasoning": true,
+					"provider": {
+						"npm": "@ai-sdk/openai",
+						"api": ""
+					}
+				},
 				"XAIO-C-4-5-Sonnet": {
 					"limit": {
 						"context": 200000,
@@ -471,6 +486,31 @@
 					"reasoning": true
 				}
 			}
+		},
+		"GGBOOM": {
+			"npm": "@ai-sdk/openai",
+			"name": "GGBOOM",
+			"options": {
+				"baseURL": "https://ai.qaq.al",
+				"apiKey": ""
+			},
+			"models": {
+				"gpt-5-4": {
+					"limit": {
+						"context": 1050000,
+						"output": 128000
+					},
+					"options": {
+						"store": false
+					},
+					"variants": {
+						"low": {},
+						"medium": {},
+						"high": {},
+						"xhigh": {}
+					}
+				}
+			}
 		}
 	},
 	"permission": {
@@ -516,5 +556,5 @@
 			"command": ["npx", "-y", "chrome-devtools-mcp@latest"]
 		}
 	},
-	"plugin": ["oh-my-opencode@latest"]
+	"plugin": ["oh-my-opencode"]
 }
