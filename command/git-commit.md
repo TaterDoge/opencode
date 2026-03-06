@@ -1,13 +1,13 @@
 ---
 name: git-commit
 description: 分析Git变更并自动生成符合规范的提交消息
-agent: sisyphus
-model: x-aio/GLM-5
+agent: build
+model: x-aio/Kimi-K2.5
 interaction: chat
 opts:
   adapter:
     name: x-aio
-    model: GLM-5
+    model: Kimi-K2.5
   alias: git-commit
   auto_submit: true
   is_slash_cmd: true

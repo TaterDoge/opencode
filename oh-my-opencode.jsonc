@@ -2,19 +2,19 @@
 	"$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
 	"agents": {
 		"sisyphus": {
-			"model": "x-aio/XAIO-O-G5-3-Codex"
+			"model": "x-aio/XAIO-O-G5-4"
 		},
 		"hephaestus": {
-			"model": "x-aio/XAIO-O-G5-3-Codex"
+			"model": "x-aio/XAIO-O-G5-4"
 		},
 		"oracle": {
-			"model": "x-aio/XAIO-O-G5-2"
+			"model": "x-aio/XAIO-O-G5-4"
 		},
 		"librarian": {
 			"model": "x-aio/Kimi-K2.5"
 		},
 		"explore": {
-			"model": "x-aio/MiniMax-M2.5"
+			"model": "x-aio/Kimi-K2.5"
 		},
 		"multimodal-looker": {
 			"model": "XAIO-G-3-Flash-Preview"
@@ -37,10 +37,10 @@
 			"model": "x-aio/XAIO-G-3-Pro-Preview"
 		},
 		"ultrabrain": {
-			"model": "x-aio/XAIO-O-G5-3-Codex"
+			"model": "x-aio/XAIO-O-G5-4"
 		},
 		"deep": {
-			"model": "x-aio/XAIO-O-G5-3-Codex"
+			"model": "x-aio/XAIO-O-G5-4"
 		},
 		"artistry": {
 			"model": "x-aio/XAIO-G-3-Pro-Preview"
@@ -52,7 +52,7 @@
 			"model": "x-aio/Kimi-K2.5"
 		},
 		"unspecified-high": {
-			"model": "x-aio/XAIO-O-G5-3-Codex"
+			"model": "x-aio/XAIO-O-G5-4"
 		},
 		"writing": {
 			"model": "x-aio/Kimi-K2.5"
